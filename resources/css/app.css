@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.link {
+    @apply focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500;
+}
