@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\CardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -25,9 +27,16 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', function (Request $request) {
+        return Inertia::render('Dashboard', [
+            'cardCount' => $request->user()->cards()->count(),
+        ]);
+    })->name('dashboard');
+    Route::get('/cards', [CardController::class, 'index'])->name('cards.index');
+    Route::get('/cards/new', [CardController::class, 'create'])->name('cards.create');
+    Route::post('/cards/new', [CardController::class, 'store'])->name('cards.store');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

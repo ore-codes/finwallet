@@ -1,7 +1,8 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head } from '@inertiajs/react';
+import {Head, Link} from '@inertiajs/react';
+import PrimaryButton from "@/Components/PrimaryButton.jsx";
 
-export default function Dashboard({ auth }) {
+export default function Dashboard({ auth, cardCount }) {
     return (
         <AuthenticatedLayout
             user={auth.user}
@@ -12,7 +13,14 @@ export default function Dashboard({ auth }) {
             <div className="py-12">
                 <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div className="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
-                        <div className="p-6 text-gray-900 dark:text-gray-100">You're logged in!</div>
+                        <div className="p-6 text-gray-900 dark:text-gray-100">
+                            <Link href={route('cards.index')}>
+                                <PrimaryButton>
+                                    <span className="text-3xl font-semibold">{cardCount}</span>
+                                    <span>&nbsp;active cards</span>
+                                </PrimaryButton>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </div>

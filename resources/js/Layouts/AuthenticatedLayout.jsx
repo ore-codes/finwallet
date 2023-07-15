@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import {useState} from 'react';
 import ApplicationLogo from '@/Components/ApplicationLogo';
 import Dropdown from '@/Components/Dropdown';
 import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
-import { Link } from '@inertiajs/react';
+import {Link} from '@inertiajs/react';
 
-export default function Authenticated({ user, header, children }) {
+export default function Authenticated({user, header, children}) {
     const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
 
     return (
@@ -16,13 +16,23 @@ export default function Authenticated({ user, header, children }) {
                         <div className="flex">
                             <div className="shrink-0 flex items-center">
                                 <Link href="/">
-                                    <ApplicationLogo className="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                                    <ApplicationLogo
+                                        className="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200"/>
                                 </Link>
                             </div>
 
                             <div className="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink href={route('dashboard')} active={route().current('dashboard')}>
                                     Dashboard
+                                </NavLink>
+                                <NavLink href={route('dashboard')} active={route().current('send_money')}>
+                                    Send money
+                                </NavLink>
+                                <NavLink href={route('dashboard')} active={route().current('receive_payment')}>
+                                    Receive payments
+                                </NavLink>
+                                <NavLink href={route('dashboard')} active={route().current('transaction_history')}>
+                                    Transaction History
                                 </NavLink>
                             </div>
                         </div>
@@ -56,6 +66,7 @@ export default function Authenticated({ user, header, children }) {
 
                                     <Dropdown.Content>
                                         <Dropdown.Link href={route('profile.edit')}>Profile</Dropdown.Link>
+                                        <Dropdown.Link href={route('cards.index')}>Cards</Dropdown.Link>
                                         <Dropdown.Link href={route('logout')} method="post" as="button">
                                             Log Out
                                         </Dropdown.Link>
@@ -95,6 +106,15 @@ export default function Authenticated({ user, header, children }) {
                         <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
                             Dashboard
                         </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('dashboard')} active={route().current('send_money')}>
+                            Send money
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('dashboard')} active={route().current('receive_payment')}>
+                            Receive payments
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink href={route('dashboard')} active={route().current('transaction_history')}>
+                            Transaction History
+                        </ResponsiveNavLink>
                     </div>
 
                     <div className="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
@@ -105,6 +125,7 @@ export default function Authenticated({ user, header, children }) {
 
                         <div className="mt-3 space-y-1">
                             <ResponsiveNavLink href={route('profile.edit')}>Profile</ResponsiveNavLink>
+                            <ResponsiveNavLink href={route('cards.index')}>Cards</ResponsiveNavLink>
                             <ResponsiveNavLink method="post" href={route('logout')} as="button">
                                 Log Out
                             </ResponsiveNavLink>
