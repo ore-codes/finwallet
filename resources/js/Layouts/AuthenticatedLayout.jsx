@@ -25,13 +25,10 @@ export default function Authenticated({user, header, children}) {
                                 <NavLink href={route('dashboard')} active={route().current('dashboard')}>
                                     Dashboard
                                 </NavLink>
-                                <NavLink href={route('dashboard')} active={route().current('send_money')}>
+                                <NavLink href={route('transactions.create')} active={route().current('transactions.create')}>
                                     Send money
                                 </NavLink>
-                                <NavLink href={route('dashboard')} active={route().current('receive_payment')}>
-                                    Receive payments
-                                </NavLink>
-                                <NavLink href={route('dashboard')} active={route().current('transaction_history')}>
+                                <NavLink href={route('transactions.index')} active={route().current('transactions.index')}>
                                     Transaction History
                                 </NavLink>
                             </div>
@@ -106,13 +103,10 @@ export default function Authenticated({user, header, children}) {
                         <ResponsiveNavLink href={route('dashboard')} active={route().current('dashboard')}>
                             Dashboard
                         </ResponsiveNavLink>
-                        <ResponsiveNavLink href={route('dashboard')} active={route().current('send_money')}>
+                        <ResponsiveNavLink href={route('transactions.create')} active={route().current('transactions.create')}>
                             Send money
                         </ResponsiveNavLink>
-                        <ResponsiveNavLink href={route('dashboard')} active={route().current('receive_payment')}>
-                            Receive payments
-                        </ResponsiveNavLink>
-                        <ResponsiveNavLink href={route('dashboard')} active={route().current('transaction_history')}>
+                        <ResponsiveNavLink href={route('transactions.index')} active={route().current('transactions.index')}>
                             Transaction History
                         </ResponsiveNavLink>
                     </div>

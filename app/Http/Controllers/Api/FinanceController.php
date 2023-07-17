@@ -27,4 +27,23 @@ class FinanceController extends Controller
             ], 400);
         }
     }
+
+    public function verifyAccountNumber(string $number, string $code): JsonResponse
+    {
+        $response = Http::withHeaders([
+            'Authorization' => sprintf("Bearer %s", env('PAYSTACK_SECRET_KEY')),
+        ])->get("https://api.paystack.co/bank/resolve?account_number=$number&bank_code=$code");
+
+        $json = $response->json();
+
+        if ($json['status']) {
+            return response()->json([
+                'data' => $json['data'],
+            ]);
+        } else {
+            return response()->json([
+                'error' => $json['message'],
+            ], 400);
+        }
+    }
 }

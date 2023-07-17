@@ -21,4 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::middleware('auth')->group(function () {
     Route::get('/bin/{bin}', [FinanceController::class, 'resolveCardBIN']);
+    Route::get('/verify-account/{account}/{code}', [FinanceController::class, 'verifyAccountNumber']);
 });

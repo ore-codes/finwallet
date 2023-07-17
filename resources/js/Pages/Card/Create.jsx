@@ -8,7 +8,7 @@ import {useEffect, useState} from "react";
 import InputError from "@/Components/InputError.jsx";
 
 export default function Create({auth}) {
-    const { data, setData, post, processing, errors, reset } = useForm({
+    const { data, setData, post, processing, errors } = useForm({
         first_name: '',
         last_name: '',
         last4: '',
