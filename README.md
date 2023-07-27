@@ -1,8 +1,8 @@
 # Finwallet
 
 <p align="center">
-<img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status">
-<img src="https://img.shields.io/packagist/l/laravel/framework" alt="License">
+<img src="https://img.shields.io/badge/Tests-passing-green">
+<img src="https://img.shields.io/badge/Status-not_deployed-red">
 </p>
 
 ## Setup
@@ -13,6 +13,14 @@
 5. Run `php artisan migrate`
 6. Visit http://localhost
 7. Thanks!
+
+## Technology stack
+<p align="center">
+<img src="https://img.shields.io/badge/Backend-Laravel-orange">
+<img src="https://img.shields.io/badge/Frontend-React-green">
+<img src="https://img.shields.io/badge/UI-Tailwind-blue">
+<img src="https://img.shields.io/badge/Provider-Paystack-skyblue">
+</p>
 
 ## License
 
